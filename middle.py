@@ -7,5 +7,4 @@ def hello():
 
 if __name__ == "__main__":
     app.debug = True # change to false when deploying
-    app.secret_key = str(uuid4())
     app.run()
