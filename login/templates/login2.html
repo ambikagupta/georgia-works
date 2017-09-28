@@ -1,0 +1,26 @@
+<link rel=stylesheet type=text/css href="../static/style.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+{% block body %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+
+<div class="wrapper">
+    <form class="login" action="/login" method="POST">
+      <p class="title">Log in</p>
+      <input type="username" name="username" placeholder="Username" autofocus/>
+      <i class="fa fa-user"></i>
+      <input type="password" name="password" placeholder="Password" />
+      <i class="fa fa-key"></i>
+      <a href="/forgot">Forgot your password?</a>
+      <button type="submit">
+          <span class="state">Log in</span>
+      </button>
+    </form>
+    <footer><a target="blank" href="http://AbyssWatcher.github.io">AbyssWatcher.github.io</a></footer>
+    </p>
+  </div>
+
+  {% endif %}
+  {% endblock %}

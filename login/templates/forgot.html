@@ -1,0 +1,16 @@
+import pdb
+pdb.set_trace()
+
+set FLASK_APP=login.py
+flask run
+
+<form class="forgot" action="/forgot" method="POST">
+    <p class="title">Log in</p>
+    <input type="username" name="username" placeholder="Username" autofocus/>
+    <i class="fa fa-user"></i>
+    <input type="password" name="password" placeholder="Password" />
+    <i class="fa fa-key"></i>
+    <button type="submit">
+        <span class="state">Log in</span>
+    </button>
+</form>
