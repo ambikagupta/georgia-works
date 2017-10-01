@@ -7,23 +7,17 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     if not session.get('logged_in'):
-        print ("not logged in")
         return render_template('login.html')
     else:
-        print ("logged in ")
         return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    print ("admin login")
     print (request.form["password"])
     if request.form["password"] == 'password' and request.form["username"] == 'admin':
-        print ("top if")
         session['logged_in'] = True
     else:
-        print ("bot if")
-    print ("return home")
-    return home()
+        return home()
 
 @app.route("/logout")
 def logout():
