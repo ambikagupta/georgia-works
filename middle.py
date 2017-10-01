@@ -7,16 +7,22 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     if not session.get('logged_in'):
+        print ("not logged in")
         return render_template('login.html')
     else:
-        return render_template('loggedIn.html')
+        print ("logged in ")
+        return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    if request.form['password'] == 'password' and request.form['username'] == 'admin':
+    print ("admin login")
+    print (request.form["password"])
+    if request.form["password"] == 'password' and request.form["username"] == 'admin':
+        print ("top if")
         session['logged_in'] = True
     else:
-        flash('wrong password!')
+        print ("bot if")
+    print ("return home")
     return home()
 
 @app.route("/logout")
@@ -34,4 +40,5 @@ def passwordReset():
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
+    app.debug = True
     app.run()
