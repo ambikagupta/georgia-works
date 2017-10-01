@@ -81,7 +81,7 @@ body.fixed-nav {
   #mainNav .navbar-collapse .sidenav-toggler {
     display: none; }
   #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link {
-    position: relative;
+    float: right;
     min-width: 45px; }
     #mainNav .navbar-collapse .navbar-nav > .nav-item.dropdown > .nav-link:after {
       float: right;
