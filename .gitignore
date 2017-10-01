@@ -102,3 +102,6 @@ ENV/
 # emacs
 *~
 *#
+
+#password
+password.txt
