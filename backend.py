@@ -6,7 +6,7 @@ passFile = open("password.txt","r") #opens file
 db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                      user="root",         # your username
                      passwd=f.read(),  # your password
-                     db="jonhydb")        # name of the data base
+                     db="Georgia Works Database")        # name of the data base
 
 # you must create a Cursor object. It will let
 #  you execute all the queries you need
