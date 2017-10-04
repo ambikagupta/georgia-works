@@ -18,6 +18,10 @@ def do_admin_login():
         session['logged_in'] = True
     return home()
 
+@app.route('/charts')
+def charts():
+    return render_template('charts.html')
+
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
