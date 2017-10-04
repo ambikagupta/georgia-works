@@ -105,3 +105,6 @@ ENV/
 
 #password
 password.txt
+
+#sensitive_data
+*.sql
