@@ -16,8 +16,7 @@ def do_admin_login():
     print (request.form["password"])
     if request.form["password"] == 'password' and request.form["username"] == 'admin':
         session['logged_in'] = True
-    else:
-        return home()
+    return home()
 
 @app.route("/logout")
 def logout():
