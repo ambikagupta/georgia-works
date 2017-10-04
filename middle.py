@@ -31,6 +31,10 @@ def forgotPassword():
 def passwordReset():
     return "Hello"
 
+@app.route("/tables")
+def show_tables():
+    return render_template('tables.html')
+
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
     app.debug = True
