@@ -3,20 +3,23 @@ import MySQLdb
 
 passFile = open("password.txt","r") #opens file
 
-db = MySQLdb.connect(host="localhost",    # your host, usually localhost
-                     user="root",         # your username
-                     passwd=f.read(),  # your password
-                     db="Georgia Works Database")        # name of the data base
+def dbConnect():
+    '''
+    Connects to root database
 
-# you must create a Cursor object. It will let
-#  you execute all the queries you need
-cur = db.cursor()
+    NOTE: Make sure to use db.close() after usage!
 
-# Use all the SQL you like
-cur.execute("SELECT * FROM YOUR_TABLE_NAME")
+    Args: None
+    Returns: database link 'db'
+       * db.cursor() : returns cursor to point to data
+          * cur.execute(<SQL in string here>)
 
-# print all the first cell of all the rows
-for row in cur.fetchall():
-    print row[0]
+    For complete MySQLdb Python Module Documentation:
+         http://www.mikusa.com/python-mysql-docs/index.html
+    '''
 
-db.close()
+    db = MySQLdb.connect(host="localhost",    # your host, usually localhost
+                         user="root",         # your username
+                         passwd=f.read(),     # your password
+                         db="Georgia Works Database")  # name of the data base
+    return db;
