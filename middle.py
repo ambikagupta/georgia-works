@@ -29,7 +29,7 @@ def logout():
 
 @app.route("/forgot")
 def forgotPassword():
-    return render_template('forgot.html')
+    return render_template('forgot-password.html')
 
 @app.route("/forgot", methods=['POST'])
 def passwordReset():
@@ -38,6 +38,10 @@ def passwordReset():
 @app.route("/tables")
 def show_tables():
     return render_template('tables.html')
+
+@app.route("/register")
+def show_register():
+    return render_template('register.html')
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
