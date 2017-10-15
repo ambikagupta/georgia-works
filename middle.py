@@ -47,9 +47,19 @@ def forgotPassword():
 def passwordReset():
     return "Hello"
 
-@app.route("/tables")
+@app.route("/tables", methods=['GET', 'POST'])
 def show_tables():
-    return render_template('tables.html')
+    errors = ''
+    if request.method == "GET":
+        return render_template('tables.html')
+    else:
+        first = request.form['firstname']
+        last = request.form['lastname']
+        if not first or not last:
+            errors = 'Please enter all fields'
+        if not errors:
+            return render_template('tables.html')
+    return render_template('newclientform.html', errors = errors)
 
 @app.route("/register")
 def show_register():

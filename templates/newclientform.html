@@ -20,7 +20,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/">Start Bootstrap</a>
+    <a class="navbar-brand" href="/">Georgia Works</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -84,13 +84,18 @@
       </ol>
       <div class="row">
         <div class="col-12">
-        <form name="add" method="POST">
+        <form action="/tables" method="POST">
           <h1>Add New Client</h1>
           First Name<br><div class="input-group">
                        <input name='firstname' type="text" class="form-control">
          	    </div><br>
           Last Name<br><input name='lastname' type="text" class="form-control"><br>
           <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
+          {% if errors %}
+          <div class="alert alert-danger">
+        {{ errors }}
+          </div>
+          {% endif %}
         </form>
         </div>
       </div>
