@@ -11,6 +11,18 @@ def home():
     else:
         return render_template('index.html')
 
+@app.route('/form', methods=['GET', 'POST'])
+def new_clientform():
+    if request.method == 'POST':
+        if request.form['submit'] == 'newclient':
+            return render_template('newclientform.html')
+        elif request.form['submit'] == 'editclient':
+                 return render_template('editclientform.html')
+        else:
+            pass
+    elif request.method == 'GET':
+        return render_template('index.html')
+
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     print (request.form["password"])
@@ -42,6 +54,8 @@ def show_tables():
 @app.route("/register")
 def show_register():
     return render_template('register.html')
+
+
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)

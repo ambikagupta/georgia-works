@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,8 +13,6 @@
   <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <!-- Page level plugin CSS-->
-  <link href="static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="static/css/sb-admin.css" rel="stylesheet">
 </head>
@@ -21,7 +20,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/">Georgia Works</a>
+    <a class="navbar-brand" href="/">Start Bootstrap</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,10 +29,9 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="/">
             <i class="fa fa-fw fa-dashboard"></i>
-            <span class="nav-link-text">Home</span>
+            <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="/charts">
             <i class="fa fa-fw fa-area-chart"></i>
@@ -46,6 +44,7 @@
             <span class="nav-link-text">Tables</span>
           </a>
         </li>
+
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -55,6 +54,7 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
           <form class="form-inline my-2 my-lg-0 mr-lg-2">
             <div class="input-group">
               <input class="form-control" type="text" placeholder="Search for...">
@@ -67,8 +67,8 @@
           </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="/logout">
-            <i class="fa fa-fw fa-sign-out" ></i>Logout</a>
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
         </li>
       </ul>
     </div>
@@ -78,15 +78,16 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="#">Home</a>
+          <a href="/">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
+        <li class="breadcrumb-item active">Blank Page</li>
       </ol>
-
- <form action="/form" method="post">
-      <button class="btn btn-success btn-block" type="submit" id="submit" name="submit" value="newclient" >Add New Client</button>
-      <button class="btn btn-success btn-block" type="submit" id="submit" name="submit" value="editclient">Edit Client</button>
-  </form>
+      <div class="row">
+        <div class="col-12">
+          <h1>Edit Client</h1>
+          
+      </div>
+    </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
@@ -113,7 +114,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="/logout">Logout</a>
+            <a class="btn btn-primary" href="/login">Logout</a>
           </div>
         </div>
       </div>
@@ -124,15 +125,8 @@
     <script src="static/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <!-- Page level plugin JavaScript-->
-    <script src="static/vendor/chart.js/Chart.min.js"></script>
-    <script src="static/vendor/datatables/jquery.dataTables.js"></script>
-    <script src="static/vendor/datatables/dataTables.bootstrap4.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="static/js/sb-admin.min.js"></script>
-    <!-- Custom scripts for this page-->
-    <script src="static/js/sb-admin-datatables.min.js"></script>
-    <script src="static/js/sb-admin-charts.min.js"></script>
   </div>
 </body>
 
