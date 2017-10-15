@@ -86,9 +86,14 @@
         <div class="col-12">
           <h1>Edit Client</h1>
           <form action="/tables" method="POST">
-            <br><div class="input-group">
-                <input name='firstname' type="text" placeholder="Select Client" class="form-control">
-           	   </div><br>
+              <label for="client_name">Name  </label><input id="client_name" name="client_name" type="text" list="client" />
+                  <datalist id="client">
+                     <option value="client1">
+                     <option value="client2">
+                     <option value="client3">
+                     <option value="client4">
+                     <option value="client">
+                  </datalist>
             <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
           </form>
       </div>
