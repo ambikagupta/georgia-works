@@ -18,6 +18,10 @@ def do_admin_login():
         session['logged_in'] = True
     return home()
 
+@app.route('/register.html')
+def register():
+    return render_template('register.html')
+
 @app.route('/charts')
 def charts():
     return render_template('charts.html')
@@ -26,10 +30,6 @@ def charts():
 def logout():
     session['logged_in'] = False
     return home()
-
-@app.route("/forgot")
-def forgotPassword():
-    return render_template('forgot.html')
 
 @app.route("/forgot", methods=['POST'])
 def passwordReset():
