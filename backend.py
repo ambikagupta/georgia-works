@@ -20,6 +20,6 @@ def dbConnect():
 
     db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                          user="root",         # your username
-                         passwd=f.read(),     # your password
-                         db="Georgia Works Database")  # name of the data base
-    return db;
+                         passwd=passFile.read(),     # your password
+                         db="GeorgiaWorks")  # name of the data base
+    return db

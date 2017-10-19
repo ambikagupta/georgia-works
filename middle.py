@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import Flask, flash, redirect, render_template, request, session, abort
 import os
+import backend
 
 app = Flask(__name__)
 
@@ -25,7 +26,7 @@ def new_clientform():
 
 @app.route('/login', methods=['POST'])
 def do_admin_login():
-    print (request.form["password"])
+    print(request.form["password"])
     if request.form["password"] == 'password' and request.form["username"] == 'admin':
         session['logged_in'] = True
     return home()
@@ -33,6 +34,15 @@ def do_admin_login():
 @app.route('/register.html')
 def register():
     return render_template('register.html')
+
+#@app.route('/register', methods=['GET', 'POST'])
+#def submit_register():
+#    print(request.form["exampleInputName"])
+#   print(request.form["exampleInputLastName"])
+#    db = backend.dbConnect()
+#    db.cursor().execute("INSERT INTO users (username, firstName, lastName, password, email, usertype)" +
+#     "VALUES ('admin3', 'Param', 'Ri', 'paramPass','param@hello.com', 'admin');")
+#    return home()
 
 @app.route('/charts')
 def charts():
