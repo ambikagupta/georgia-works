@@ -328,3 +328,5 @@ def get_Participant(Last_Name=None, First_Name=None, ssn=None
         #close database connections
         cursor.close()
         conn.close()
+
+# get employee
