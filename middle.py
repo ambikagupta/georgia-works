@@ -27,6 +27,7 @@ def new_clientform():
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     print(request.form["password"])
+
     if request.form["password"] == 'password' and request.form["username"] == 'admin':
         session['logged_in'] = True
     return home()
@@ -68,6 +69,7 @@ def show_tables():
         if not first or not last:
             errors = 'Please enter all fields'
         if not errors:
+            # call backend, load param data, unpack it
             return render_template('tables.html')
     return render_template('newclientform.html', errors = errors)
 
