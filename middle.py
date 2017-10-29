@@ -27,6 +27,7 @@ def new_clientform():
 @app.route('/login', methods=['POST'])
 def do_admin_login():
     print(request.form["password"])
+
     if request.form["password"] == 'password' and request.form["username"] == 'admin':
         session['logged_in'] = True
     return home()
@@ -90,6 +91,7 @@ def submit_client():
         if not params:
             errors = 'Error! Duplicate client found'
         if not errors:
+
             success = 'Success! Client added'
             return render_template('newclientform.html', success = success)
     return render_template('newclientform.html', errors = errors)

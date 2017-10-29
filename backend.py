@@ -1,3 +1,4 @@
+import MySQLdb
 from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
 import json
@@ -5,18 +6,20 @@ import json
 #Insert into
 def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
                        SSN, Address, Phone, Email, Home_Town,
-                       Criminal_Background, Drug_Used, Assignment,
+                       Criminal_Background, Drug_Used, Asssignment,
                        Sex, Case_Manager, Education, Medications,
-                       Health_Conditions, Time_Homeless(Days),
+                       Health_Conditions, Time_Homeless,
                        Disabilites, Admin_Date):
     #wrap the participant idea
 
-    query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone, Email, Home_Town, Criminal_Background, Drug_Used, Assignment, Sex, Case_Manager, Education, Medications, Health_Conditions, Time_Homeless(Days), Disabilites, Admin_Date) "
+    query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
+            "Email, Home_Town, Criminal_Background, Drug Used, Asssignment, Sex, Case_Manager, Education," \
+            " Medications, Health_Conditions,Time_Homeless(Days), Disabilites, Admin_Date) " \
      "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
     args = (Participant_Id, Last_Name, First_Name, DOB, SSN,
             Address, Phone, Email, Home_Town, Criminal_Background,
-            Drug_Used, Assignment, Sex, Case_Manager, Education,
+            Drug_Used, Asssignment, Sex, Case_Manager, Education,
             Medications, Health_Conditions, Time_Homeless(Days),
             Disabilites, Admin_Date)
 
@@ -71,8 +74,8 @@ def remove_Employee(Employee_Id):
     # remove participant based on Id;
     db_config = read_db_config();
 
-    query = "DELETE FROM Employees
-             WHERE Employee_ID=%s "
+    query = "DELETE FROM Employees" \
+            "WHERE Employee_ID=%s "
     data = (Employee_Id); # inserts into query in cursor.execute
 
     try:
@@ -123,6 +126,10 @@ def update_Participant(attribute, newValue ,Participant_Id):
 
 #Update Employees
 def update_Employees(attribute, newValue, Employee_Id):
+    # attribute: age
+    # newValue: 18
+    # employee ID ...
+
     # read database configuration
     db_config = read_db_config()
 
@@ -182,7 +189,9 @@ def update_Housing(attribute, newValue ,Participant_Id, Housing_Assign):
 
 
 #Update Post_Grad
-def update_Post_Grad(attribute, newValue ,Participant_Id):
+def update_Post_Grad(attribute, newValue, Participant_Id):
+    #
+
     # read database configuration
     db_config = read_db_config()
 
@@ -213,7 +222,10 @@ def update_Post_Grad(attribute, newValue ,Participant_Id):
 
 
 #Update EC
-def update_EC(attribute, newValue ,EC_Id):
+def update_EC(attribute, newValue, EC_Id):
+    # emergency contact
+    # holds one Participant ID within each unique EC_Id
+
     # read database configuration
     db_config = read_db_config()
 
@@ -269,28 +281,28 @@ def get_Participant(Participant_Id):
 
 # get participant using last/first, ssn, or age
 # returns JSON
-def get_Participant(Last_Name=None, First_Name=None, ssn=None
+def get_Participant(Last_Name=None, First_Name=None, ssn=None,
                     age=None):
     ## WARNING: If using Last/First or Age, may have duplicates
     ## In which case, will choose the first one returned
 
     # require at least one param (Last/First is one param both be given)
-    if (Last_Name == None or First_Name == None)
-        and
-        ssn == None
-        and
+    if (Last_Name == None or First_Name == None) \
+        and \
+        ssn == None \
+        and \
         age == None:
 
         db_config = read_db_config()
 
         if (Last_Name != None and First_Name != None): # last/first given
-            name_cond = "Last_Name: " + Last_Name
-                          + " AND" +
-                        "First_Name" + First_Name
+            name_cond = "Last_Name = " + Last_Name \
+                          + " AND" + \
+                        "First_Name = " + First_Name
         if (ssn != None):
-            ssn_cond = "SSN: " + ssn
+            ssn_cond = "SSN = " + ssn
         if (age != None):
-            age_cond = "Age: " + age
+            age_cond = "Age = " + age
 
         conditional = ""
         if (name_cond != None):
@@ -298,13 +310,12 @@ def get_Participant(Last_Name=None, First_Name=None, ssn=None
         # insert AND
         if (ssn != None and conditional != ""):
             conditional += "AND"
-            conditional += ssn_cond
+            conditional += "SSN = " + ssn_cond
         if (age != None and conditional != ""):
             conditional += "AND"
-            conditional += age_cond
+            conditional += "age = " + age_cond
 
-       query = """ SELECT Participant_Id FROM Participants
-                   WHERE""" + conditional
+        query = "SELECT Participant_Id FROM Participants WHERE " + conditional
 
     try:
         conn = MySQLConnection(**db_config)

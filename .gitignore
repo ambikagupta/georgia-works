@@ -108,3 +108,6 @@ password.txt
 
 #sensitive_data
 *.sql
+
+# python
+*.pyc
