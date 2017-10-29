@@ -5,22 +5,18 @@ import json
 #Insert into
 def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
                        SSN, Address, Phone, Email, Home_Town,
-                       Criminal_Background, Drug Used, Asssignment,
+                       Criminal_Background, Drug_Used, Assignment,
                        Sex, Case_Manager, Education, Medications,
                        Health_Conditions, Time_Homeless(Days),
                        Disabilites, Admin_Date):
     #wrap the participant idea
 
-    query = "INSERT INTO Participants(Participant_Id, Last_Name,
-First_Name, DOB, SSN, Address, Phone, Email, Home_Town,
- Criminal_Background, Drug Used, Asssignment, Sex,
- Case_Manager, Education, Medications, Health_Conditions,
- Time_Homeless(Days), Disabilites, Admin_Date) " \
+    query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone, Email, Home_Town, Criminal_Background, Drug_Used, Assignment, Sex, Case_Manager, Education, Medications, Health_Conditions, Time_Homeless(Days), Disabilites, Admin_Date) "
      "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
     args = (Participant_Id, Last_Name, First_Name, DOB, SSN,
             Address, Phone, Email, Home_Town, Criminal_Background,
-            Drug Used, Asssignment, Sex, Case_Manager, Education,
+            Drug_Used, Assignment, Sex, Case_Manager, Education,
             Medications, Health_Conditions, Time_Homeless(Days),
             Disabilites, Admin_Date)
 

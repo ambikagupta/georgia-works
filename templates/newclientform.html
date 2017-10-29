@@ -84,26 +84,26 @@
       </ol>
       <div class="row">
         <div class="col-12">
-        <form action="/tables" method="POST">
+        <form action="/submitted" method="POST">
           <h1>Application For Intake</h1>
-          <br>Date:<br><input type="date" name="date" class="form-control"><br>
-          Last Name<br><input name='lastname' type="text" class="form-control"><br>
-          First Name<br><input name='firstname' placeholder="Print Legal Name Only" type="text" class="form-control"><br>
+          <br>Date:<br><input type="date" name="date" class="form-control" required><br>
+          Last Name<br><input name='lastname' type="text" class="form-control" required><br>
+          First Name<br><input name='firstname' placeholder="Print Legal Name Only" type="text" class="form-control" required><br>
           Middle Name<br><input name='middlname' type="text" class="form-control"><br>
           Have you been in this program before?<br>
-          <input type="radio" name="program" value="yes"> Yes<br>
+          <input type="radio" name="program" value="yes" required> Yes<br>
           <input type="radio" name="program" value="no"> No<br>
           <br>If Yes, When?:<br><input type="date" name="dateleft" class="form-control"><br>
           How did you exit this program?<br>
-          <input type="radio" name="exit" value="hired"> Got Hired<br>
+          <input type="radio" name="exit" value="hired" required> Got Hired<br>
           <input type="radio" name="exit" value="left"> Left<br>
           <input type="radio" name="exit" value="discharge"> Discharged<br>
           <input type="radio" name="exit" value="relapse"> Relapsed<br>
           <br>If No, How did you hear about Georgia Works<br><input name='hear' type="text" class="form-control"><br>
-          Birth Date:<br><input type="birthdate" name="date" class="form-control"><br>
-          SSN<br><input type="text" id="ssn" name="ssn" placeholder="555-55-5555" pattern="\d{3}-?\d{2}-?\d{4}"><br>
+          Birth Date:<br><input type="date" name="birthdate" class="form-control" required><br>
+          SSN<br><input type="text" id="ssn" name="ssn" placeholder="555-55-5555" pattern="\d{3}-?\d{2}-?\d{4}" required><br>
           <br>Race<br>
-          <input type="radio" name="race" value="indian"> American Indian / Alaskan<br>
+          <input type="radio" name="race" value="indian" required> American Indian / Alaskan<br>
           <input type="radio" name="race" value="asian"> Asian<br>
           <input type="radio" name="race" value="black"> Black or African American<br>
           <input type="radio" name="race" value="pacific"> Pacific Islanders<br>
@@ -112,10 +112,10 @@
           <input type="radio" name="race" value="his"> Hispanic<br>
           <input type="radio" name="race" value="nonhis"> Non-Hispanic<br>
           <input type="radio" name="race" value="more"> Two or More<br>
-          <br>Age<br><input name='age' type="text" class="form-control"><br>
-          Ethnicity<br><input name='ethnicity' type="text" class="form-control"><br>
+          <br>Age<br><input name='age' type="text" class="form-control" required><br>
+          Ethnicity<br><input name='ethnicity' type="text" class="form-control" required><br>
           Gender<br>
-          <input type="radio" name="gender" value="male"> Male<br>
+          <input type="radio" name="gender" value="male" required> Male<br>
           <input type="radio" name="gender" value="transgender"> Transgender<br>
           <br><label for="emergencycontact">Emergency Contact Information </label><br>
           Contact Name<br><input name='contact' type="text" class="form-control"><br>
@@ -126,12 +126,12 @@
           <br>City<br><input name='city' type="text" class="form-control"><br>
           State<br><input name='state' type="text" class="form-control"><br>
           Zip Code<br><input type="text" name="zip" id="zip" pattern="[0-9]{5}"><br>
-          <br>Length of time in Atlanta<br><input name='timeatl' type="text" class="form-control"><br>
-          Last Zip Code<br><input type="text" name="zip" id="zip" pattern="[0-9]{5}"><br>
+          <br>Length of time in Atlanta<br><input name='timeatl' type="text" class="form-control" required><br>
+          Last Zip Code<br><input type="text" name="zip" id="zip" pattern="[0-9]{5}" required><br>
           <br>Are you currently homeless?<br>
-          <input type="radio" name="homeless" value="yes"> Yes<br>
+          <input type="radio" name="homeless" value="yes" required> Yes<br>
           <input type="radio" name="homeless" value="no"> No<br>
-          <br>Number of Years Homeless<br><input type="number" name="homelessyears" id="homeslessyears" class="form-control"><br>
+          <br>Number of Years Homeless<br><input type="number" name="homelessyears" id="homeslessyears" class="form-control" required><br>
           Are you *Chronically Homeless?<br>
           <input type="radio" name="chronic" value="yes"> Yes<br>
           <input type="radio" name="chronic" value="no"> No<br>
@@ -142,15 +142,15 @@
           City<br><input name='lastcity' type="text" class="form-control"><br>
           State<br><input name='laststate' type="text" class="form-control"><br>
           Zip Code<br><input type="text" name="zip" id="zip" pattern="[0-9]{5}" class="form-control"><br>
-          Number of Times Arrested<br><input name='arrest' type="number" class="form-control"><br>
+          Number of Times Arrested<br><input name='arrest' type="number" class="form-control" required><br>
           Do you have a pending charge?<br>
-          <input type="radio" name="charge" value="yes"> Yes<br>
+          <input type="radio" name="charge" value="yes" required> Yes<br>
           <input type="radio" name="charge" value="no"> No<br>
           <br>If Yes, What?<br><input name='whatcharge' type="text" class="form-control"><br>
           Prior Felony Charge(s)<br><input name='priorcharge' type="text" class="form-control"><br>
           Drug(s) of Choice<br><input name='drugs' type="text" class="form-control"><br>
           Check Highest Education<br>
-          <input type="radio" name="edu" value="6-9"> 6-9 Grade Education<br>
+          <input type="radio" name="edu" value="6-9" required> 6-9 Grade Education<br>
           <input type="radio" name="edu" value="10-11"> 10-11 Grade Education<br>
           <input type="radio" name="edu" value="hs"> High School Diploma<br>
           <input type="radio" name="edu" value="ged"> GED/HS Equivalency<br>
@@ -166,39 +166,44 @@
           <br>If Yes, What is it?<br><input name='mental' type="text" class="form-control"><br>
           <label for="lastadr"><b>Answer All Questions</b></label>
           <br>Do You Have a Valid Driver's License?<br>
-          <input type="radio" name="license" value="yes"> Yes<br>
+          <input type="radio" name="license" value="yes" required> Yes<br>
           <input type="radio" name="license" value="no"> No<br>
           <br>Do You Own a Vehicle (Car)?<br>
-          <input type="radio" name="car" value="yes"> Yes<br>
+          <input type="radio" name="car" value="yes" required> Yes<br>
           <input type="radio" name="car" value="no"> No<br>
           <br>Do You Owe Child Support?<br>
-          <input type="radio" name="child" value="yes"> Yes<br>
+          <input type="radio" name="child" value="yes" required> Yes<br>
           <input type="radio" name="child" value="no"> No<br>
           <br>Are You a Veteran?<br>
-          <input type="radio" name="vet" value="yes"> Yes<br>
+          <input type="radio" name="vet" value="yes" required> Yes<br>
           <input type="radio" name="vet" value="no"> No<br>
           <br>Do You Receive SNAP (food stamps)?<br>
-          <input type="radio" name="snap" value="yes"> Yes<br>
+          <input type="radio" name="snap" value="yes" required> Yes<br>
           <input type="radio" name="snap" value="no"> No<br>
-          <br>Time since last job<br><input name='lastjob' type="text" class="form-control"><br>
-          Type of work<br><input name='worktype' type="text" class="form-control"><br>
+          <br>Time since last job<br><input name='lastjob' type="text" class="form-control" required><br>
+          Type of work<br><input name='worktype' type="text" class="form-control" required><br>
           Have you ever been hurt on a job?<br>
-          <input type="radio" name="hurt" value="yes"> Yes<br>
+          <input type="radio" name="hurt" value="yes" required> Yes<br>
           <input type="radio" name="hurt" value="no"> No<br>
           <br>If Yes, When?<br><input name='yeshurt' type="text" class="form-control"><br>
           Can you physically work now?<br>
-          <input type="radio" name="physwork" value="yes"> Yes<br>
+          <input type="radio" name="physwork" value="yes" required> Yes<br>
           <input type="radio" name="physwork" value="no"> No<br>
           <br>If No, Why?<br><input name='nowork' type="text" class="form-control"><br>
           List any physical restrictions<br><input name='restr' type="text" class="form-control"><br>
-          List Skills, Certifications or Type of Jobs Worked<br><input name='skills' type="text" class="form-control"><br>
+          List Skills, Certifications or Type of Jobs Worked<br><input name='skills' type="text" class="form-control" required><br>
 
           <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
-          {% if errors %}
+        {% if errors %}
           <div class="alert alert-danger">
         {{ errors }}
           </div>
-          {% endif %}
+        {% endif %}
+        {% if success %}
+            <div class="alert alert-success">
+        {{ success }}
+          </div>
+        {% endif %}
         </form>
         </div>
       </div>
