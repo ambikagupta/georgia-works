@@ -66,28 +66,28 @@ def submit_client():
         return render_template('tables.html')
     else:
         #check params again, some dont fit the form, also need to check if query was successful
-        params {
-            '_first' = request.form['firstname']
-            '_last' = request.form['lastname']
-            '_dob' = request.form['birthdate']
-            '_ssn' = request.form['ssn']
-            '_addr' = request.form['zip']
-            '_phone' = request.form['phonenum']
-            '_email' = ''
-            '_hometown' = request.form['lastcity']
-            '_criminalbg' = request.form['arrest']
-            '_druguse' = request.form['drugs']
-            '_assgn' = ''
-            '_sex' = request.form['gender']
-            '_casemgr' = ''
-            '_edu' = request.form['edu']
-            '_meds' = ''
-            '_health' = request.form['health']
-            '_homeless' = request.form['homelessyears']
-            '_disabilities' = request.form['restr']
-            '_admindate' = '';
-            backend.insert_Participant(params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9], params[10], params[11], params[12], params[13], params[14], params[15], params[16], params[17], params[18])
-        }
+        params = {
+            '_first' : request.form['firstname'],
+            '_last' : request.form['lastname'],
+            '_dob' : request.form['birthdate'],
+            '_ssn' : request.form['ssn'],
+            '_addr' : request.form['zip'],
+            '_phone' : request.form['phonenum'],
+            '_email' : '',
+            '_hometown' : request.form['lastcity'],
+            '_criminalbg' : request.form['arrest'],
+            '_druguse' : request.form['drugs'],
+            '_assgn' : '',
+            '_sex' : request.form['gender'],
+            '_casemgr' : '',
+            '_edu' : request.form['edu'],
+            '_meds' : '',
+            '_health' : request.form['health'],
+            '_homeless' : request.form['homelessyears'],
+            '_disabilities' : request.form['restr'],
+            '_admindate' : ''
+            }
+        backend.insert_Participant(params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9], params[10], params[11], params[12], params[13], params[14], params[15], params[16], params[17], params[18])
         if not params:
             errors = 'Error! Duplicate client found'
         if not errors:
