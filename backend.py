@@ -4,7 +4,7 @@ from python_mysql_dbconfig import read_db_config
 import json
 
 #Insert into
-def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
+def insert_Participant(Last_Name, First_Name, DOB,
                        SSN, Address, Phone, Email, Home_Town,
                        Criminal_Background, Drug_Used, Assignment,
                        Sex, Case_Manager, Education, Medications,
@@ -12,7 +12,9 @@ def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
                        Disabilites, Admin_Date):
     #wrap the participant idea
 
-    query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
+    # GENERATE A PARTICIPANT ID
+
+    query = "INSERT INTO Participants(Participants_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
             "Email, Home_Town, Criminal_Background, Drug Used, Assignment, Sex, Case_Manager, Education," \
             " Medications, Health_Conditions,Time_Homeless(Days), Disabilites, Admin_Date) " \
      "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
@@ -278,6 +280,8 @@ def get_Participant(Participant_Id):
         #close database connections
         cursor.close()
         conn.close()
+
+# Make get_Participant for ALL participants // TO DO
 
 # get participant using last/first, ssn, or age
 # returns JSON
