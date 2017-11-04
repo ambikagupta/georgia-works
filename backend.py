@@ -3,6 +3,13 @@ from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
 import json
 
+partID = 5;
+
+def create_ID()
+	partID = partID + 1
+	return partID;
+
+
 #Insert into
 def insert_Participant(Last_Name, First_Name, DOB,
                        SSN, Address, Phone, Email, Home_Town,
@@ -16,13 +23,174 @@ def insert_Participant(Last_Name, First_Name, DOB,
 
     query = "INSERT INTO Participants(Participants_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
             "Email, Home_Town, Criminal_Background, Drug Used, Assignment, Sex, Case_Manager, Education," \
-            " Medications, Health_Conditions,Time_Homeless(Days), Disabilites, Admin_Date) " \
+            " Medications, Health_Conditions,Time_Homeless, Disabilites, Admin_Date) " \
      "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
-    args = (Participant_Id, Last_Name, First_Name, DOB, SSN,
+     # Instead of Time
+    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
             Address, Phone, Email, Home_Town, Criminal_Background,
             Drug_Used, Assignment, Sex, Case_Manager, Education,
-            Medications, Health_Conditions, Time_Homeless(Days),
+            Medications, Health_Conditions, Time_Homeless,
+            Disabilites, Admin_Date)
+
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+
+        cursor = conn.cursor()
+        cursor.execute(query, args)
+
+        if cursor.lastrowid:
+            print('last insert id', cursor.lastrowid)
+        else:
+            print('last insert id not found')
+
+        conn.commit()
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def insert_Employees(Last_Name, First_Name, DOB,
+                       SSN, Address, Phone, Email, Home_Town,
+                       Criminal_Background, Drug_Used, Assignment,
+                       Sex, Case_Manager, Education, Medications,
+                       Health_Conditions, Time_Homeless,
+                       Disabilites, Admin_Date):
+    #wrap the participant idea
+
+    # GENERATE A PARTICIPANT ID
+
+    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+
+     # Instead of Time
+    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
+            Address, Phone, Email, Home_Town, Criminal_Background,
+            Drug_Used, Assignment, Sex, Case_Manager, Education,
+            Medications, Health_Conditions, Time_Homeless,
+            Disabilites, Admin_Date)
+
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+
+        cursor = conn.cursor()
+        cursor.execute(query, args)
+
+        if cursor.lastrowid:
+            print('last insert id', cursor.lastrowid)
+        else:
+            print('last insert id not found')
+
+        conn.commit()
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def insert_EC(Last_Name, First_Name, DOB,
+                       SSN, Address, Phone, Email, Home_Town,
+                       Criminal_Background, Drug_Used, Assignment,
+                       Sex, Case_Manager, Education, Medications,
+                       Health_Conditions, Time_Homeless,
+                       Disabilites, Admin_Date):
+    #wrap the participant idea
+
+    # GENERATE A PARTICIPANT ID
+
+    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+
+     # Instead of Time
+    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
+            Address, Phone, Email, Home_Town, Criminal_Background,
+            Drug_Used, Assignment, Sex, Case_Manager, Education,
+            Medications, Health_Conditions, Time_Homeless,
+            Disabilites, Admin_Date)
+
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+
+        cursor = conn.cursor()
+        cursor.execute(query, args)
+
+        if cursor.lastrowid:
+            print('last insert id', cursor.lastrowid)
+        else:
+            print('last insert id not found')
+
+        conn.commit()
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def insert_PostGrad(Last_Name, First_Name, DOB,
+                       SSN, Address, Phone, Email, Home_Town,
+                       Criminal_Background, Drug_Used, Assignment,
+                       Sex, Case_Manager, Education, Medications,
+                       Health_Conditions, Time_Homeless,
+                       Disabilites, Admin_Date):
+    #wrap the participant idea
+
+    # GENERATE A PARTICIPANT ID
+
+    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+
+     # Instead of Time
+    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
+            Address, Phone, Email, Home_Town, Criminal_Background,
+            Drug_Used, Assignment, Sex, Case_Manager, Education,
+            Medications, Health_Conditions, Time_Homeless,
+            Disabilites, Admin_Date)
+
+    try:
+        db_config = read_db_config()
+        conn = MySQLConnection(**db_config)
+
+        cursor = conn.cursor()
+        cursor.execute(query, args)
+
+        if cursor.lastrowid:
+            print('last insert id', cursor.lastrowid)
+        else:
+            print('last insert id not found')
+
+        conn.commit()
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def insert_Housing(Last_Name, First_Name, DOB,
+                       SSN, Address, Phone, Email, Home_Town,
+                       Criminal_Background, Drug_Used, Assignment,
+                       Sex, Case_Manager, Education, Medications,
+                       Health_Conditions, Time_Homeless,
+                       Disabilites, Admin_Date):
+    #wrap the participant idea
+
+    # GENERATE A PARTICIPANT ID
+
+    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+
+     # Instead of Time
+    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
+            Address, Phone, Email, Home_Town, Criminal_Background,
+            Drug_Used, Assignment, Sex, Case_Manager, Education,
+            Medications, Health_Conditions, Time_Homeless,
             Disabilites, Admin_Date)
 
     try:
@@ -79,6 +247,78 @@ def remove_Employee(Employee_Id):
     query = "DELETE FROM Employees" \
             "WHERE Employee_ID=%s "
     data = (Employee_Id); # inserts into query in cursor.execute
+
+    try:
+        conn = MySQLConnection(**db_config)
+
+        # update book title
+        cursor = conn.cursor()
+        cursor.execute(query, data)
+
+        # accept the changes
+        conn.commit()
+
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def remove_EC(Participant_Id):
+    # remove participant based on Id;
+    db_config = read_db_config();
+
+    query = "DELETE FROM Participants WHERE Participant_ID=%s "
+    data = (Participant_Id);
+
+    try:
+        conn = MySQLConnection(**db_config)
+
+        # update book title
+        cursor = conn.cursor()
+        cursor.execute(query, data)
+
+        # accept the changes
+        conn.commit()
+
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def remove_PostGrad(Participant_Id):
+    # remove participant based on Id;
+    db_config = read_db_config();
+
+    query = "DELETE FROM Participants WHERE Participant_ID=%s "
+    data = (Participant_Id);
+
+    try:
+        conn = MySQLConnection(**db_config)
+
+        # update book title
+        cursor = conn.cursor()
+        cursor.execute(query, data)
+
+        # accept the changes
+        conn.commit()
+
+    except Error as error:
+        print(error)
+
+    finally:
+        cursor.close()
+        conn.close()
+
+def remove_Housing(Participant_Id):
+    # remove participant based on Id;
+    db_config = read_db_config();
+
+    query = "DELETE FROM Participants WHERE Participant_ID=%s "
+    data = (Participant_Id);
 
     try:
         conn = MySQLConnection(**db_config)
