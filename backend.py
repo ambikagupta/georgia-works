@@ -53,25 +53,16 @@ def insert_Participant(Last_Name, First_Name, DOB,
         cursor.close()
         conn.close()
 
-def insert_Employees(Last_Name, First_Name, DOB,
-                       SSN, Address, Phone, Email, Home_Town,
-                       Criminal_Background, Drug_Used, Assignment,
-                       Sex, Case_Manager, Education, Medications,
-                       Health_Conditions, Time_Homeless,
-                       Disabilites, Admin_Date):
+def insert_Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone, Address, Email, DOB, SSN, Sex):
     #wrap the participant idea
 
     # GENERATE A PARTICIPANT ID
 
-    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
-     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone, Address, Email, DOB, SSN, Sex)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
      # Instead of Time
-    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
-            Address, Phone, Email, Home_Town, Criminal_Background,
-            Drug_Used, Assignment, Sex, Case_Manager, Education,
-            Medications, Health_Conditions, Time_Homeless,
-            Disabilites, Admin_Date)
+    args = (Employee_ID, First_Name, Last_Name, Job_Title, Phone, Address, Email, DOB, SSN, Sex)
 
     try:
         db_config = read_db_config()
@@ -124,25 +115,16 @@ def insert_EC(Participant_ID, Last_Name, First_Name, DOB, Address, Phone):
         cursor.close()
         conn.close()
 
-def insert_PostGrad(Last_Name, First_Name, DOB,
-                       SSN, Address, Phone, Email, Home_Town,
-                       Criminal_Background, Drug_Used, Assignment,
-                       Sex, Case_Manager, Education, Medications,
-                       Health_Conditions, Time_Homeless,
-                       Disabilites, Admin_Date):
+def insert_PostGrad(Participant_ID, First_Name, Last_Name, Duration_GAW, Time_Homeless, Times_Arrested, Resolved_Barriers, Date_Hired, New_Job, New_Address, Zip, Starting_Wage, Last_Followup):
     #wrap the participant idea
 
     # GENERATE A PARTICIPANT ID
 
-    query = "INSERT INTO Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone_No., Address, Email, DOB, SSN, Sex)" \
-     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    query = "INSERT INTO Post_Grad(Participant_ID, First_Name, Last_Name, Duration_GAW, Time_Homeless, Times_Arrested, Resolved_Barriers, Date_Hired, New_Job, New_Address, Zip, Starting_Wage, Last_Followup)" \
+     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
      # Instead of Time
-    args = (create_ID(), Last_Name, First_Name, DOB, SSN,
-            Address, Phone, Email, Home_Town, Criminal_Background,
-            Drug_Used, Assignment, Sex, Case_Manager, Education,
-            Medications, Health_Conditions, Time_Homeless,
-            Disabilites, Admin_Date)
+    args = (Participant_ID, First_Name, Last_Name, Duration_GAW, Time_Homeless, Times_Arrested, Resolved_Barriers, Date_Hired, New_Job, New_Address, Zip, Starting_Wage, Last_Followup)
 
     try:
         db_config = read_db_config()
@@ -169,7 +151,7 @@ def insert_Housing(Participant_ID, Housing_Assign, Bed, Admin_Date, Exit_Date):
 
     # GENERATE A PARTICIPANT ID
 
-    query = "INSERT INTO Employees(Participant_ID, Housing_Assign, Bed, Admin_Date, Exit_Date)" \
+    query = "INSERT INTO Housing(Participant_ID, Housing_Assign, Bed, Admin_Date, Exit_Date)" \
      "VALUES(%s,%s,%s,%s,%s)"
 
      # Instead of Time
@@ -275,7 +257,7 @@ def remove_PostGrad(Participant_Id):
     # remove participant based on Id;
     db_config = read_db_config();
 
-    query = "DELETE FROM Participants WHERE Participant_ID=%s "
+    query = "DELETE FROM Post_Grad WHERE Participant_ID=%s "
     data = (Participant_Id);
 
     try:
