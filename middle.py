@@ -49,6 +49,10 @@ def register():
 def charts():
     return render_template('charts.html')
 
+@app.route('/tables')
+def showTables():
+    return render_template('tables.html')
+
 @app.route("/logout")
 def logout():
     session['logged_in'] = False

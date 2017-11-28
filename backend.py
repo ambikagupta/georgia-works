@@ -3,11 +3,11 @@ from mysql.connector import MySQLConnection, Error
 from python_mysql_dbconfig import read_db_config
 import json
 
-partID = 5;
+partID = 5
 
-def create_ID()
+def create_ID():
 	partID = partID + 1
-	return partID;
+	return partID
 
 
 #Insert into
