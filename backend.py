@@ -307,18 +307,17 @@ def update_Participant(attribute, newValue ,Participant_Id):
     db_config = read_db_config()
 
     # prepare query and data
-    query = """ UPDATE Participant
+    query = """ UPDATE Participants
                 SET %s = %s
-                WHERE Participant_Id = %s """
+                WHERE Participant_Id = %s """ %(attribute, newValue, Participant_Id)
 
-    data = (attribute, newValue ,Participant_Id)
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update book title
         cursor = conn.cursor()
-        cursor.execute(query, data)
+        cursor.execute(query)
 
         # accept the changes
         conn.commit()
@@ -438,7 +437,7 @@ def update_EC(attribute, newValue, Participant_Id):
     # prepare query and data
     query = """ UPDATE EC
                 SET %s = %s
-                WHERE Participant_Id = %s """
+                WHERE Participant_Id = %s """ %(attribute, newValue, Participant_Id)
 
     data = (attribute, newValue, EC_Id)
 
@@ -464,17 +463,17 @@ def get_Participant(Participant_Id):
 
     db_config = read_db_config()
 
-    query = """ SELECT JSON_OBJECT('Participant_Id', %s)
-                FROM Participants """
+    query = """ SELECT * FROM Participants WHERE participants.participant_Id = %s
+    """ %Participant_Id
 
-    data = (Participant_Id) #tuple
+    #data = (Participant_Id) #tuple
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update table
         cursor = conn.cursor()
-        cursor.execute(query, data) # cursor obj holds result
+        cursor.execute(query)#, data) # cursor obj holds result
         result = cursor.fetchone() # resulting JSON object
 
         return result
@@ -485,63 +484,15 @@ def get_Participant(Participant_Id):
         cursor.close()
         conn.close()
 
+
+
 # Make get_Participant for ALL participants // TO DO
 
 # get participant using last/first, ssn, or age
 # returns JSON
-def get_Participant(Last_Name=None, First_Name=None, ssn=None,
-                    age=None):
-    ## WARNING: If using Last/First or Age, may have duplicates
-    ## In which case, will choose the first one returned
 
-    # require at least one param (Last/First is one param both be given)
-    if (Last_Name == None or First_Name == None) \
-        and \
-        ssn == None \
-        and \
-        age == None:
 
-        db_config = read_db_config()
-
-        if (Last_Name != None and First_Name != None): # last/first given
-            name_cond = "Last_Name = " + Last_Name \
-                          + " AND" + \
-                        "First_Name = " + First_Name
-        if (ssn != None):
-            ssn_cond = "SSN = " + ssn
-        if (age != None):
-            age_cond = "Age = " + age
-
-        conditional = ""
-        if (name_cond != None):
-            conditional += name_cond
-        # insert AND
-        if (ssn != None and conditional != ""):
-            conditional += "AND"
-            conditional += "SSN = " + ssn_cond
-        if (age != None and conditional != ""):
-            conditional += "AND"
-            conditional += "age = " + age_cond
-
-        query = "SELECT Participant_Id FROM Participants WHERE " + conditional
-
-    try:
-        conn = MySQLConnection(**db_config)
-
-        # update table
-        cursor = conn.cursor()
-        cursor.execute(query) # cursor obj holds result
-
-        # get Participant_Id
-        result = cursor.fetchone() # gets one row, query may give more than
-                                   # one if using Last/First or age?
-
-        return get_Participant(result) # use Participant_Id to get JSON
-    except Error as error:
-        print(error)
-    finally:
-        #close database connections
-        cursor.close()
-        conn.close()
+#print(get_Participant(22))
+update_Participant('Last_Name',"'GOEFEA'", 1)
 
 # get employee
