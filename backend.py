@@ -302,6 +302,20 @@ def remove_Housing(Participant_Id):
         conn.close()
 
 #Update Participant
+"""Updates a specific attribute to a given value
+
+Given an attribute name (one of the column headers), a new value (to replace/set),
+and a specific participant (specified by their participant ID). The function 
+updates the old value of the attribute to the given new value. 
+
+Example:
+    update_Participant('Last_Name',"'Cho'", 1)
+
+Args:
+    attribute: A string that contains the name of the attribute/column header.
+    newValue: The value that will replace the current value (String or Int).
+    Participant_Id: The unique participant ID for a specific participant.    
+"""
 def update_Participant(attribute, newValue ,Participant_Id):
     # read database configuration
     db_config = read_db_config()
@@ -459,6 +473,25 @@ def update_EC(attribute, newValue, Participant_Id):
         conn.close()
 
 # return JSON object of Participants given Id
+"""Fetches all row elements based on a given ID
+
+Returns a JSON object/array containing the information of a specific participant given their participant ID.
+
+Example:
+    get_Participant(22)
+
+Args:
+    Participant_Id: The unique participant ID for a specific participant.
+
+Returns:
+    A JSON object/array that contains the attributes of a specific participant. Each of the 36
+    attributes in the row is represented within the array. For example:
+
+        (Participant_Id, Duration, Last_Name, First_Name, Job, DOB, SSN, Address, Phone, Email, Home_Town, Prior_Felony,
+        Num_Times, Drug Used, Assignment, Sex, CM, Education, TABE Score, Medications, Health_Conditions, Time_Homeless,
+        Time_Since_LJ, Work_Exp, Disabilities, Admin_Date, Program_Date, Recent DT Result, DT Result, Years in ATL,
+        Veteren, SNAP, Liscense, BGC, BGC Comments)
+"""
 def get_Participant(Participant_Id):
 
     db_config = read_db_config()
@@ -484,13 +517,13 @@ def get_Participant(Participant_Id):
         cursor.close()
         conn.close()
 
-
-
-# Make get_Participant for ALL participants // TO DO
-
+# TODO: Make get_Participant for ALL participants
 # get participant using last/first, ssn, or age
 # returns JSON
 
+"""
+Backend Testing:
+"""
 
 #print(get_Participant(22))
 update_Participant('Last_Name',"'GOEFEA'", 1)

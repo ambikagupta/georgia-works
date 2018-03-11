@@ -111,3 +111,6 @@ password.txt
 
 # python
 *.pyc
+
+# Configuration Files
+config.ini
