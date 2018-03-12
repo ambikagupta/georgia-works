@@ -585,5 +585,12 @@ Backend Testing:
 #before an update is done: Starting_Wage needs to be formatted like
 # $ (number) / hr.
 
-#update_Housing('Housing_Assign', "'Q'", 1, "'A'")
-#Participant_Id, Housing_Assign, Bed, Admin_Date, Exit_Date
+# update_Housing('Housing_Assign', "'Q'", 1, "'A'")
+# Participant_Id, Housing_Assign, Bed, Admin_Date, Exit_Date
+
+# insert_Participant(Last_Name, First_Name, DOB,
+#                        SSN, Address, Phone, Email, Home_Town,
+#                        Criminal_Background, Drug_Used, Assignment,
+#                        Sex, Case_Manager, Education, Medications,
+#                        Health_Conditions, Time_Homeless,
+#                        Disabilites, Admin_Date)
