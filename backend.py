@@ -10,7 +10,7 @@ def create_ID():
 	return partID
 
 
-#Insert into
+#Insert into    
 def insert_Participant(Last_Name, First_Name, DOB,
                        SSN, Address, Phone, Email, Home_Town,
                        Criminal_Background, Drug_Used, Assignment,
@@ -302,7 +302,7 @@ def remove_Housing(Participant_Id):
         conn.close()
 
 #Update Participant
-"""Updates a specific attribute to a given value
+"""Updates a specific attribute in the Participants Database
 
 Given an attribute name (one of the column headers), a new value (to replace/set),
 and a specific participant (specified by their participant ID). The function 
@@ -355,16 +355,16 @@ def update_Employees(attribute, newValue, Employee_Id):
     # prepare query and data
     query = """ UPDATE Employees
                 SET %s = %s
-                WHERE Employee_Id = %s """
+                WHERE Employee_Id = %s """ %(attribute, newValue, Employee_Id)
 
-    data = (attribute, newValue ,Employee_Id)
+    #data = (attribute, newValue ,Employee_Id)
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update book title
         cursor = conn.cursor()
-        cursor.execute(query, data)
+        cursor.execute(query)#, data)
 
         # accept the changes
         conn.commit()
@@ -378,6 +378,21 @@ def update_Employees(attribute, newValue, Employee_Id):
 
 
 #Update Housing
+"""Updates a specific attribute in the Housing Database
+
+Given an attribute name (one of the column headers), a new value (to replace/set), 
+a specific participant (specified by their participant ID), and a housing assignment value. 
+The function updates the old value of the attribute to the given new value. 
+
+Example:
+    update_Housing('Housing_Assign', "'Q'", 1, "'A'")
+
+Args:
+    attribute: A string that contains the name of the attribute/column header.
+    newValue: The value that will replace the current value (String or Int).
+    Participant_Id: The unique participant ID for a specific participant.
+    Housing_Assign: The housing assignment value/letter that the participant is assigned to.    
+"""
 def update_Housing(attribute, newValue ,Participant_Id, Housing_Assign):
     # read database configuration
     db_config = read_db_config()
@@ -385,16 +400,16 @@ def update_Housing(attribute, newValue ,Participant_Id, Housing_Assign):
     # prepare query and data
     query = """ UPDATE Housing
                 SET %s = %s
-                WHERE Paricipant_Id = %s AND Housing_Assign = %s """
+                WHERE Participant_Id = %s AND Housing_Assign = %s """ %(attribute, newValue, Participant_Id, Housing_Assign)
 
-    data = (attribute, newValue ,Participant_Id, Housing_Assign)
+    #data = (attribute, newValue ,Participant_Id, Housing_Assign)
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update book title
         cursor = conn.cursor()
-        cursor.execute(query, data)
+        cursor.execute(query)#, data)
 
         # accept the changes
         conn.commit()
@@ -408,6 +423,20 @@ def update_Housing(attribute, newValue ,Participant_Id, Housing_Assign):
 
 
 #Update Post_Grad
+"""Updates a specific attribute in the Post Graduation Database
+
+Given an attribute name (one of the column headers), a new value (to replace/set),
+and a specific participant (specified by their participant ID). The function 
+updates the old value of the attribute to the given new value. 
+
+Example:
+    update_Post_Grad('Starting_Wage', "'$ 15.00 / hr.'", 233)
+
+Args:
+    attribute: A string that contains the name of the attribute/column header.
+    newValue: The value that will replace the current value (String or Int).
+    Participant_Id: The unique participant ID for a specific participant.    
+"""
 def update_Post_Grad(attribute, newValue, Participant_Id):
     #
 
@@ -417,16 +446,16 @@ def update_Post_Grad(attribute, newValue, Participant_Id):
     # prepare query and data
     query = """ UPDATE Post_Grad
                 SET %s = %s
-                WHERE Participant_Id = %s """
+                WHERE Participant_Id = %s """ %(attribute, newValue, Participant_Id)
 
-    data = (attribute, newValue ,Participant_Id)
+    #data = (attribute, newValue ,Participant_Id)
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update book title
         cursor = conn.cursor()
-        cursor.execute(query, data)
+        cursor.execute(query)#, data)
 
         # accept the changes
         conn.commit()
@@ -441,6 +470,20 @@ def update_Post_Grad(attribute, newValue, Participant_Id):
 
 
 #Update EC
+"""Updates a specific attribute in the Emergency Contact Database
+
+Given an attribute name (one of the column headers), a new value (to replace/set),
+and a specific participant (specified by their participant ID). The function 
+updates the old value of the attribute to the given new value. 
+
+Example:
+    update_EC('Last_Name',"'Pump'", 2)
+
+Args:
+    attribute: A string that contains the name of the attribute/column header.
+    newValue: The value that will replace the current value (String or Int).
+    Participant_Id: The unique participant ID for a specific participant.    
+"""
 def update_EC(attribute, newValue, Participant_Id):
     # emergency contact
     # holds one Participant ID within each unique EC_Id
@@ -453,14 +496,14 @@ def update_EC(attribute, newValue, Participant_Id):
                 SET %s = %s
                 WHERE Participant_Id = %s """ %(attribute, newValue, Participant_Id)
 
-    data = (attribute, newValue, EC_Id)
+    #data = (attribute, newValue, EC_Id)
 
     try:
         conn = MySQLConnection(**db_config)
 
         # update book title
         cursor = conn.cursor()
-        cursor.execute(query, data)
+        cursor.execute(query)#, data)
 
         # accept the changes
         conn.commit()
@@ -473,7 +516,7 @@ def update_EC(attribute, newValue, Participant_Id):
         conn.close()
 
 # return JSON object of Participants given Id
-"""Fetches all row elements based on a given ID
+"""Fetches all row elements based on a given ID in the Participants Database
 
 Returns a JSON object/array containing the information of a specific participant given their participant ID.
 
@@ -521,11 +564,33 @@ def get_Participant(Participant_Id):
 # get participant using last/first, ssn, or age
 # returns JSON
 
+# TODO: Create an Employee table or a new database
+# All of the functions that deal with employees are 
+# useless because no such table/database exists.
+#
+# update_Employees(attribute, newValue, Employee_Id)
+# remove_Employee(Employee_Id)
+# insert_Employees(Employee_ID, First_Name, Last_Name, Job_Title, Phone, Address, Email, DOB, SSN, Sex)
+
 """
 Backend Testing:
 """
-
 #print(get_Participant(22))
-update_Participant('Last_Name',"'GOEFEA'", 1)
+#update_Participant('Last_Name',"'GOEFEA'", 1)
 
-# get employee
+#update_EC('Last_Name', "'Pump'", 2)
+
+#update_Post_Grad('Starting_Wage', "'$ 15.00 / hr.'", 233)
+#The only problem is some columns have to be formatted correctly
+#before an update is done: Starting_Wage needs to be formatted like
+# $ (number) / hr.
+
+# update_Housing('Housing_Assign', "'Q'", 1, "'A'")
+# Participant_Id, Housing_Assign, Bed, Admin_Date, Exit_Date
+
+# insert_Participant(Last_Name, First_Name, DOB,
+#                        SSN, Address, Phone, Email, Home_Town,
+#                        Criminal_Background, Drug_Used, Assignment,
+#                        Sex, Case_Manager, Education, Medications,
+#                        Health_Conditions, Time_Homeless,
+#                        Disabilites, Admin_Date)
