@@ -16,7 +16,7 @@ def home():
 def new_clientform():
     if request.method == 'POST':
         if request.form['submit'] == 'newclient':
-            return render_template('newclientform.html')
+            return render_template('insert_form.html')
         elif request.form['submit'] == 'editclient':
                  return render_template('editclientform.html')
         else:
@@ -71,34 +71,37 @@ def submit_client():
     else:
         #check params again, some dont fit the form, also need to check if query was successful
         params = {
-            '_first' : request.form['firstname'],
-            '_last' : request.form['lastname'],
-            '_dob' : request.form['birthdate'],
-            '_ssn' : request.form['ssn'],
-            '_addr' : request.form['zip'],
-            '_phone' : request.form['phonenum'],
-            '_email' : '',
-            '_hometown' : request.form['lastcity'],
-            '_criminalbg' : request.form['arrest'],
-            '_druguse' : request.form['drugs'],
-            '_assgn' : '',
-            '_sex' : request.form['gender'],
-            '_casemgr' : '',
-            '_edu' : request.form['edu'],
-            '_meds' : '',
-            '_health' : request.form['health'],
-            '_homeless' : request.form['homelessyears'],
-            '_disabilities' : request.form['restr'],
-            '_admindate' : ''
-            }
-        backend.insert_Participant(params[0], params[1], params[2], params[3], params[4], params[5], params[6], params[7], params[8], params[9], params[10], params[11], params[12], params[13], params[14], params[15], params[16], params[17], params[18])
+            'Participant_Id': int(request.form['id']), 
+            'Last_Name': str('' + request.form['lastname']), 
+            'First_Name': str('' + request.form['firstname']), 
+            'DOB': str('' + request.form['dob']),
+            'SSN': str('' + request.form['ssn']), 
+            'Address': str('' + request.form['address']), 
+            'Phone': str('' + request.form['phone']), 
+            'Email': str('' + request.form['email']), 
+            'Home_Town': str('' + request.form['hometown']),
+            'Prior_Felony': str('' + request.form['priorfelony']), 
+            'Drug_Used': str('' + request.form['drugsused']), 
+            'Assignment': str('' + request.form['assignment']),
+            'Sex': str('' + request.form['sex']), 
+            'Case_Manager': str('' + request.form['casemanager']), 
+            'Education': str('' + request.form['education']), 
+            'Medications': str('' + request.form['medications']),
+            'Health_Conditions': str('' + request.form['healthconditions']), 
+            'Time_Homeless': str('' + request.form['timehomeless']),
+            'Disabilites': str('' + request.form['disabilities']),
+            'Admin_Date': str('' + request.form['admindate'])
+        }
+
+        backend.insert_Participant(params['Participant_Id'], params['Last_Name'], params['First_Name'], params['DOB'], params['SSN'], params['Address'], params['Phone'], params['Email'], params['Home_Town'], params['Prior_Felony'], params['Drug_Used'], params['Assignment'], params['Sex'], params['Case_Manager'], params['Education'], params['Medications'], params['Health_Conditions'], params['Time_Homeless'], params['Disabilites'], params['Admin_Date'])
+        #print(params[0])
         if not params:
             errors = 'Error! Duplicate client found'
         if not errors:
 
             success = 'Success! Client added'
-            return render_template('newclientform.html', success = success)
-    return render_template('newclientform.html', errors = errors)
+            return render_template('insert_form.html', success = success)
+    return render_template('insert_form.html', errors = errors)
 
 @app.route("/register")
 def show_register():
