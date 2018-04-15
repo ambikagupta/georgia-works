@@ -76,7 +76,7 @@ def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
     query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
             "Email, Home_Town, Prior_Felony, Drug_Used, Assignment, Sex, CM, Education," \
             " Medications, Health_Conditions,Time_Homeless, Disabilites, Admin_Date) " \
-     "VALUES(\"%s\",\"\'%s\'\",\"\'%s\'\",\"%s\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"%s\")" %(Participant_Id, Last_Name, First_Name, DOB, SSN,
+     "VALUES(\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\")" %(Participant_Id, Last_Name, First_Name, DOB, SSN,
             Address, Phone, Email, Home_Town, Prior_Felony,
             Drug_Used, Assignment, Sex, Case_Manager, Education,
             Medications, Health_Conditions, Time_Homeless,
