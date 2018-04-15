@@ -18,7 +18,9 @@ def new_clientform():
         if request.form['submit'] == 'newclient':
             return render_template('insert_form.html')
         elif request.form['submit'] == 'editclient':
-                 return render_template('editclientform.html')
+            return render_template('editclientform.html')
+        elif request.form['submit'] == 'search':
+            return render_template('search.html')
         else:
             pass
     elif request.method == 'GET':
@@ -66,8 +68,9 @@ def forgotPassword():
 def submit_client():
     errors = ''
     success = ''
+    items = []
     if request.method == "GET":
-        return render_template('tables.html')
+        return render_template('tables.html', **locals())
     else:
         #check params again, some dont fit the form, also need to check if query was successful
         params = {
@@ -102,14 +105,34 @@ def submit_client():
         if not errors:
 
             success = 'Success! Client added'
-            return render_template('insert_form.html', success = success)
+            participant = backend.get_Participant(params['Participant_Id'])
+            items.append(participant)
+            # pid = participant[0] 
+            # lastname = participant[2]
+            # firstname = participant[3]
+            # dob = participant[5]
+            # ssn = participant[6]
+            # address = participant[7]
+            # phone = participant[8]
+            # email = participant[9]
+            # town = participant[10]
+            # felony = participant[11]
+            # drugs = participant[13]
+            # assignment = participant[14]
+            # sex = participant[15]
+            # cm = participant[16]
+            # education = participant[17]
+            # medication = participant[19]
+            # health = participant[20]
+            # homeless = participant[21]
+            # disabilities = participant[24]
+            # admin = participant[25]
+            return render_template('tables.html', **locals())
     return render_template('insert_form.html', errors = errors)
 
 @app.route("/register")
 def show_register():
     return render_template('register.html')
-
-
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
