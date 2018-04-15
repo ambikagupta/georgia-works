@@ -744,6 +744,33 @@ def get_Participant(Participant_Id):
         cursor.close()
         conn.close()
 
+def search(parameter, value):
+
+    db_config = read_db_config()
+
+    val = '' + value
+    par = '' + parameter
+    query = """ SELECT * FROM participants WHERE participants.%s = "%s"
+    """ %(parameter, value)
+
+    #data = (Participant_Id) #tuple
+
+    try:
+        conn = MySQLConnection(**db_config)
+
+        # update table
+        cursor = conn.cursor()
+        cursor.execute(query)#, data) # cursor obj holds result
+        result = cursor.fetchall() # resulting JSON object
+
+        return result
+    except Error as error:
+        print(error)
+    finally:
+        #close database connections
+        cursor.close()
+        conn.close()
+
 # TODO: Make get_Participant for ALL participants
 # get participant using last/first, ssn, or age
 # returns JSON
