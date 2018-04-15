@@ -93,6 +93,8 @@ def submit_client():
             'Admin_Date': str('' + request.form['admindate'])
         }
 
+
+        ## TODO CHECK THIS
         backend.insert_Participant(params['Participant_Id'], params['Last_Name'], params['First_Name'], params['DOB'], params['SSN'], params['Address'], params['Phone'], params['Email'], params['Home_Town'], params['Prior_Felony'], params['Drug_Used'], params['Assignment'], params['Sex'], params['Case_Manager'], params['Education'], params['Medications'], params['Health_Conditions'], params['Time_Homeless'], params['Disabilites'], params['Admin_Date'])
         #print(params[0])
         if not params:

@@ -34,7 +34,7 @@ Given all of the initial information about a participant, the participant
 is added to the Participants database.
 
 Example:
-    insert_Participant("'501'", "'Aaron'", "'Brooks'", "'6/27/17'", "'000-00-0000'", 
+    insert_Participant("'501'", "'Aaron'", "'Brooks'", "'6/27/2017'", "'000-00-0000'", 
     "'120 North Avenue Northwest'", "'000-000-0000'", "'abc@gmail.com'", "'Atlanta'", 
     "'Perjury'", "'Heroin'", "'Assignment'", "'M'", "'CM'", "'7th Grade'", "'Xanax'", 
     "'Ebola'", "'7 years'", "'Dyslexia'", "'3/31/18'")
@@ -70,15 +70,20 @@ def insert_Participant(Participant_Id, Last_Name, First_Name, DOB,
     #wrap the participant idea
 
     # GENERATE A PARTICIPANT ID
+    print(DOB)
 
+    ## TODO CHECK QUOTATIONS ON ALL OF THESE
     query = "INSERT INTO Participants(Participant_Id, Last_Name, First_Name, DOB, SSN, Address, Phone," \
             "Email, Home_Town, Prior_Felony, Drug_Used, Assignment, Sex, CM, Education," \
             " Medications, Health_Conditions,Time_Homeless, Disabilites, Admin_Date) " \
-     "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)" %(Participant_Id, Last_Name, First_Name, DOB, SSN,
+     "VALUES(\"%s\",\"\'%s\'\",\"\'%s\'\",\"%s\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"\'%s\'\",\"%s\")" %(Participant_Id, Last_Name, First_Name, DOB, SSN,
             Address, Phone, Email, Home_Town, Prior_Felony,
             Drug_Used, Assignment, Sex, Case_Manager, Education,
             Medications, Health_Conditions, Time_Homeless,
             Disabilites, Admin_Date)
+    print(DOB)
+    print(Admin_Date)
+    print(query)
 
      # Instead of Time
     # args = (create_ID(), Last_Name, First_Name, DOB, SSN,
