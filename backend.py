@@ -749,14 +749,25 @@ def get_Participant(Participant_Id):
         cursor.close()
         conn.close()
 
-def search(parameter, value):
+
+def search (parameter, value, parameter2 = None, value2 = None):
 
     db_config = read_db_config()
 
-    val = '' + value
     par = '' + parameter
-    query = """ SELECT * FROM participants WHERE participants.%s = "%s"
-    """ %(parameter, value)
+    val = '' + value
+    if parameter2 is not None:
+        par2 = '' + parameter2
+        val2 = '' + value2
+
+        query = """ SELECT * FROM participants WHERE participants.%s = "%s" AND participants.%s = "%s"
+        """ %(parameter, value, parameter2, value2)
+
+    else:
+        query = """ SELECT * FROM participants WHERE participants.%s = "%s"
+        """ %(parameter, value)
+
+
 
     #data = (Participant_Id) #tuple
 
