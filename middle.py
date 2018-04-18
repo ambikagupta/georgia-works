@@ -68,10 +68,10 @@ def forgotPassword():
 
 @app.route("/editdisplay", methods=['POST'])
 def do():
-    value = '' + request.form["firstname"]
-    parameter = '' + request.form["client_name"]
-    value2 = '' + "Brooks"
-    parameter2 = '' + "Last_name"
+    value = '' + request.form["value1"]
+    parameter = '' + request.form["parameter1"]
+    value2 = '' + request.form["value1"]
+    parameter2 = '' + request.form['parameter2']
     print(backend.search(parameter, value, parameter2, value2))
     return render_template('tables.html', **locals())
 
