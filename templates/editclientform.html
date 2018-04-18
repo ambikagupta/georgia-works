@@ -90,14 +90,18 @@
             <div class="col-12">
                 <h1>Edit Client</h1>
                 <form action="/editdisplay" method="POST">
-                    First Name<br><input name='firstname' placeholder="Print Legal Name Only" type="text" class="form-control" required><br>
-                    <label for="client_name">Type  </label><input id="client_name" name="client_name" type="text" list="client" />
+                    <label for="client_name">Attribute &nbsp;</label><input id="client_name" name="attribute" type="text" list="client" />
                     <datalist id="client">
                         <option value="First_Name">
                         <option value="Last_Name">
                         <option value="Participant_ID">
+                        <option value="Email">
+                        <option value="Phone">
+                        <option value="Address">
                     </datalist>
-                    <button onclick="class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
+                    Value <br><input name='value' type="text" class="form-control" required><br>
+                    Participant Id <br><input name='id' type="number" class="form-control" required><br>
+                    <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
                 </form>
             </div>
         </div>

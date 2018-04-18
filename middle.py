@@ -68,12 +68,22 @@ def forgotPassword():
 
 @app.route("/editdisplay", methods=['POST'])
 def do():
+    attribute = '' + request.form["attribute"]
+    value = '' + request.form["value"]
+    id = request.form["id"]
+    backend.update_Participant(attribute, value, id)
+    items = backend.search("Participant_Id", id)
+    #print(backend.search(parameter, value))
+    return render_template('tables.html', **locals())
+
+@app.route("/search", methods=['POST'])
+def search():
     value = '' + request.form["value1"]
     parameter = '' + request.form["parameter1"]
     value2 = '' + request.form["value2"]
     parameter2 = '' + request.form['parameter2']
     items = backend.search(parameter, value, parameter2, value2)
-    print(backend.search(parameter, value, parameter2, value2))
+    #print(backend.search(parameter, value, parameter2, value2))
     return render_template('tables.html', **locals())
 
 @app.route("/remove", methods=['POST'])
