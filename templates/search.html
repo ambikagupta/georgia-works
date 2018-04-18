@@ -88,8 +88,8 @@
     </ol>
     <div class="row">
       <div class="col-12">
-        <h1>Edit Client</h1>
-        <form action="/editdisplay" method="POST">
+        <h1>Search Clients</h1>
+        <form action="/search" method="POST">
           Value: <br><input name='value1' type="text" class="form-control" required><br>
           <label for="client_name">Search By:  </label><input id="client_name" name="parameter1" type="text" list="client" />
           <datalist id="client">
@@ -104,7 +104,7 @@
             <option value="Last_Name">
             <option value="Participant_ID">
           </datalist>
-          <button onclick="class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
+          <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
         </form>
       </div>
     </div>

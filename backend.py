@@ -497,7 +497,7 @@ def update_Participant(attribute, newValue ,Participant_Id):
 
     # prepare query and data
     query = """ UPDATE Participants
-                SET %s = %s
+                SET %s = \'%s\'
                 WHERE Participant_Id = %s """ %(attribute, newValue, Participant_Id)
 
 
