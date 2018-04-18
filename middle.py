@@ -68,7 +68,9 @@ def forgotPassword():
 def do():
     value = '' + request.form["firstname"]
     parameter = '' + request.form["client_name"]
-    items = backend.search(parameter, value)
+    value2 = '' + "Brooks"
+    parameter2 = '' + "Last_name"
+    print(backend.search(parameter, value, parameter2, value2))
     return render_template('tables.html', **locals())
 
 @app.route("/submitted", methods=['GET', 'POST'])
