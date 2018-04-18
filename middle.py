@@ -82,8 +82,20 @@ def search():
     parameter = '' + request.form["parameter1"]
     value2 = '' + request.form["value2"]
     parameter2 = '' + request.form['parameter2']
+    print("in middle")
+    print(value)
+    print(parameter)
+    print(value2)
+    print(parameter2)
+    # if value is not None and value2 is None:
+    #     items = backend.search(parameter, value)
+    # else:
+    if value2 == '':
+        value2 = None
+        parameter2 = None
     items = backend.search(parameter, value, parameter2, value2)
     #print(backend.search(parameter, value, parameter2, value2))
+    print("before render")
     return render_template('tables.html', **locals())
 
 @app.route("/remove", methods=['POST'])
