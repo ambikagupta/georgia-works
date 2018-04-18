@@ -112,5 +112,11 @@ password.txt
 # python
 *.pyc
 
+# idea
+*.idea 
+
 # Configuration Files
 config.ini
+
+
+
