@@ -64,6 +64,13 @@ def logout():
 def forgotPassword():
     return render_template('forgot-password.html')
 
+@app.route("/editdisplay", methods=['POST'])
+def do():
+    value = '' + request.form["firstname"]
+    parameter = '' + request.form["client_name"]
+    print(backend.search(parameter, value))
+    return render_template('editclientform.html')
+
 @app.route("/submitted", methods=['GET', 'POST'])
 def submit_client():
     errors = ''
