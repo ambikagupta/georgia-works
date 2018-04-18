@@ -72,7 +72,7 @@ def do():
     parameter = '' + request.form["parameter1"]
     value2 = '' + request.form["value1"]
     parameter2 = '' + request.form['parameter2']
-    print(backend.search(parameter, value, parameter2, value2))
+    items = backend.search(parameter, value)
     return render_template('tables.html', **locals())
 
 @app.route("/remove", methods=['POST'])
