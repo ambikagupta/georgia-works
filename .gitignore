@@ -115,6 +115,9 @@ password.txt
 # idea
 *.idea 
 
+# workspace
+*.xml
+
 # Configuration Files
 config.ini
 
