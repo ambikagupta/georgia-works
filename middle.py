@@ -71,7 +71,7 @@ def do():
     value2 = '' + "Brooks"
     parameter2 = '' + "Last_name"
     print(backend.search(parameter, value, parameter2, value2))
-    return render_template('editclientform.html')
+    return render_template('tables.html', **locals())
 
 @app.route("/submitted", methods=['GET', 'POST'])
 def submit_client():
