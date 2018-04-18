@@ -31,12 +31,12 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+       <!--  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="/charts">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="/tables">
             <i class="fa fa-fw fa-table"></i>
@@ -76,22 +76,22 @@
             <h1>Application For Intake</h1>
             Participant ID<br><input name='id' type="text" class="form-control" required><br>
             Last Name<br><input name='lastname' type="text" class="form-control" required><br>
-            First Name<br><input name='firstname' placeholder="Print Legal Name Only" type="text" class="form-control" required><br>
+            First Name<br><input name='firstname' type="text" class="form-control" required><br>
             Date of Birth:<br><input type="date" name="dob" class="form-control" required><br>
             Social Security Number <br><input type="text" id="ssn" name="ssn" placeholder="555-55-5555" pattern="\d{3}-?\d{2}-?\d{4}" ><br>
-            Address <br><input name='address' type="text" class="form-control" ><br>
+            Address <br><input name='address' type="text" placeholder="123 Main St, Atlanta, GA" class="form-control" ><br>
             Phone Number <br><input name='phone' type="text" class="form-control" placeholder="800-123-4567" pattern="\d{3}-?\d{3}-?\d{4}" ><br>
-            Email Address <br><input name='email' type="text" class="form-control" ><br>
-            Home Town <br><input name='hometown' type="text" class="form-control" ><br>
+            Email Address <br><input name='email' type="text" placeholder="email@email.com" class="form-control" ><br>
+            Home Town <br><input name='hometown' type="text" placeholder="New York, NY" class="form-control" ><br>
             Prior Felonies <br><input name='priorfelony' type="text" class="form-control" ><br>
             Drugs Used <br><input name='drugsused' type="text" class="form-control" ><br>
             Assignment <br><input name='assignment' type="text" class="form-control" ><br>
-            Sex <br><input name='sex' type="text" class="form-control" ><br>
+            Sex <br><input name='sex' type="text" placeholder="M/F" class="form-control" ><br>
             Case Manager <br><input name='casemanager' type="text" class="form-control" ><br>
-            Education <br><input name='education' type="text" class="form-control" ><br>
+            Education <br><input name='education' type="text" placeholder="Some college" class="form-control" ><br>
             Medications <br><input name='medications' type="text" class="form-control" ><br>
             Health Conditions <br><input name='healthconditions' type="text" class="form-control" ><br>
-            Time Spent Homeless <br><input name='timehomeless' type="text" class="form-control" ><br>
+            Time Spent Homeless <br><input name='timehomeless' type="text" placeholder="1 year" class="form-control" ><br>
             Disabilities <br><input name='disabilities' type="text" class="form-control" ><br>
             Admin Date <br><input name='admindate' type="date" class="form-control" ><br>
           <button class="btn btn-success btn-block" type="submit" id="submit">Submit</button>
