@@ -70,9 +70,10 @@ def forgotPassword():
 def do():
     value = '' + request.form["value1"]
     parameter = '' + request.form["parameter1"]
-    value2 = '' + request.form["value1"]
+    value2 = '' + request.form["value2"]
     parameter2 = '' + request.form['parameter2']
-    items = backend.search(parameter, value)
+    items = backend.search(parameter, value, parameter2, value2)
+    print(backend.search(parameter, value, parameter2, value2))
     return render_template('tables.html', **locals())
 
 @app.route("/remove", methods=['POST'])
