@@ -21,6 +21,8 @@ def new_clientform():
             return render_template('editclientform.html')
         elif request.form['submit'] == 'search':
             return render_template('search.html')
+        elif request.form['submit'] == 'remove':
+            return render_template('remove.html')
         else:
             pass
     elif request.method == 'GET':
@@ -72,6 +74,18 @@ def do():
     parameter2 = '' + "Last_name"
     print(backend.search(parameter, value, parameter2, value2))
     return render_template('tables.html', **locals())
+
+@app.route("/remove", methods=['POST'])
+def remove():
+    errors = ''
+    success = ''
+    if not request.form['id']:
+        errors = "Action failed: Missing Participant Id"
+        return render_template('remove.html', **locals())
+    else:
+        backend.remove_Participant(request.form['id'])
+        success = "Participant successfully removed!"
+        return render_template('remove.html', **locals())
 
 @app.route("/submitted", methods=['GET', 'POST'])
 def submit_client():
